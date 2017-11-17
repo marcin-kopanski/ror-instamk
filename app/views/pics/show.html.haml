@@ -11,8 +11,17 @@
       = link_to "Edit", edit_pic_path(@pic)
       = link_to "Delete", pic_path(@pic), method: :delete, data: { confirm: "Are you sure?" }
 
-  .card-footer
-    Pic by
-    = @pic.user.email
-    | Posted
-    = time_ago_in_words(@pic.updated_at)
+  .card-footer.text-muted
+    %small
+      Pic by
+      = @pic.user.email
+    %br
+    %small
+      Posted
+      = time_ago_in_words(@pic.updated_at)
+    -if user_signed_in?
+      %br
+      %small
+        = link_to like_pic_path(@pic), method: :put, class: "btn btn-default" do
+          = fa_icon "thumbs-o-up"
+          = @pic.get_upvotes.size

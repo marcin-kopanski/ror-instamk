@@ -14,3 +14,14 @@
     %small
       Posted
       = time_ago_in_words(pic.updated_at)
+    - if user_signed_in?
+      %br
+      %small
+        = link_to like_pic_path(pic), method: :put, class: "btn btn-default" do
+          = fa_icon "thumbs-o-up"
+          = pic.get_upvotes.size
+    - else
+      %br
+      %small
+        = fa_icon "thumbs-o-up"
+        = pic.get_upvotes.size
