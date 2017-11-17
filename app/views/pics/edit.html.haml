@@ -2,4 +2,8 @@
   .col-md-8.mx-auto
     %h1 Fix Pic!
 
+    - if @pic.image?
+      .row
+        = image_tag @pic.image.url(:medium), class: "mx-auto"
+
     = render "form"

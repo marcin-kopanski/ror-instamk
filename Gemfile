@@ -63,3 +63,5 @@ gem 'simple_form', '~> 3.5'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'jquery-rails'
 gem 'devise', '~> 4.3'
+
+gem 'paperclip', '~> 5.1'

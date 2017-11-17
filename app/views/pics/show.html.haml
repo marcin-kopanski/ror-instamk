@@ -1,11 +1,18 @@
-%h1= @pic.title
+.card
+  - if @pic.image?
+    = image_tag @pic.image.url, class: "card-img-top"
 
-%p= @pic.description
+  .card-body
+    %h1.card-title= @pic.title
 
-%p
-  Pic by
-  = @pic.user.email
+    %p.card-text= @pic.description
 
-= link_to "Back", root_path
-= link_to "Edit", edit_pic_path(@pic)
-= link_to "Delete", pic_path(@pic), method: :delete, data: { confirm: "Are you sure?" }
+    = link_to "Back", root_path
+    = link_to "Edit", edit_pic_path(@pic)
+    = link_to "Delete", pic_path(@pic), method: :delete, data: { confirm: "Are you sure?" }
+
+  .card-footer
+    Pic by
+    = @pic.user.email
+    | Posted
+    = time_ago_in_words(@pic.updated_at)
