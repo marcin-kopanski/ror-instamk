@@ -1,13 +1,16 @@
 .card
   - if pic.image?
-    = link_to (image_tag pic.image.url(:medium), class: "card-img-top")
+    = link_to (image_tag pic.image.url(:medium), class: "card-img-top"), pic
 
   .card-body
     %h2.card-title= link_to pic.title, pic
     %p.card-text= truncate(pic.description, length: 50)
 
   .card-footer.text-muted
-    Pic by
-    = pic.user.email
-    | Posted
-    = time_ago_in_words(pic.updated_at)
+    %small
+      Pic by
+      = pic.user.email
+    %br
+    %small
+      Posted
+      = time_ago_in_words(pic.updated_at)

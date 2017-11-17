@@ -7,9 +7,9 @@
 
     %p.card-text= @pic.description
 
-    = link_to "Back", root_path
-    = link_to "Edit", edit_pic_path(@pic)
-    = link_to "Delete", pic_path(@pic), method: :delete, data: { confirm: "Are you sure?" }
+    -if user_signed_in?
+      = link_to "Edit", edit_pic_path(@pic)
+      = link_to "Delete", pic_path(@pic), method: :delete, data: { confirm: "Are you sure?" }
 
   .card-footer
     Pic by

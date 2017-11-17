@@ -65,3 +65,5 @@ gem 'jquery-rails'
 gem 'devise', '~> 4.3'
 
 gem 'paperclip', '~> 5.1'
+
+gem 'masonry-rails', '~> 0.2.4'
